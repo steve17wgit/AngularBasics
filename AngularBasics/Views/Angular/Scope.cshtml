@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewData["Title"] = "Scope";
+}
+<script src="~/lib/angular/angular.min.js" type="text/javascript"></script>
+<h2>Scope</h2>
+@*<div ng-app="myApp" ng-controller="myCtrl">
+        <input ng-model="name">
+        <h1>My name is {{name}}</h1>
+    </div>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function ($scope) {
+            $scope.name = "John Doe";
+        });
+    </script>*@
+<body ng-app="myApp">
+    <p>The rootScope's favorite color:</p>
+    <h1>{{color}}</h1>
+
+    <div ng-controller="myCtrl">
+        <p>The scope of the controller's favorite color:</p>
+        <h1>{{color}}</h1>
+    </div>
+
+    <p>The rootScope's favorite color is still:</p>
+    <h1>{{color}}</h1>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.run(function ($rootScope) {
+            $rootScope.color = 'blue';
+        });
+        app.controller('myCtrl', function ($scope) {
+            $scope.color = "red";
+        });
+    </script>
+</body>
+
+
+
+@*
+    AngularJS Scope
+        - The scope is the binding part between the HTML (view) and the JavaScript (controller).
+        - The scope is an object with the available properties and methods.
+        - The scope is available for both the view and the controller.
+
+    How to Use the Scope?
+        - When you make a controller in AngularJS, you pass the $scope object as an argument
+        - When adding properties to the $scope object in the controller, the view (HTML) gets access to these properties.
+        - In the view, you do not use the prefix $scope, you just refer to a propertyname, like {{carname}}.
+
+        app.controller('myCtrl', function($scope) {
+            $scope.carname = "Volvo";
+        });
+
+    Understanding the Scope
+        If we consider an AngularJS application to consist of:
+
+        View, which is the HTML.
+        Model, which is the data available for the current view.
+        Controller, which is the JavaScript function that makes/changes/removes/controls the data.
+        Then the scope is the Model.
+
+        The scope is a JavaScript object with properties and methods, which are available for both the view and the controller.
+*@
