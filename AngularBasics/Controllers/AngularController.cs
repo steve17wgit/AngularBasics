@@ -57,5 +57,15 @@ namespace AngularBasics.Controllers
         {
             return View();
         }
+
+        public IActionResult Services()
+        {
+            return View();
+        }
+
+        public IActionResult Http()
+        {
+            return View();
+        }
     }
 }
